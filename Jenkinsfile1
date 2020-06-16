@@ -1,0 +1,16 @@
+pipeline{
+    agent { label 'UBUNTU' }
+    stages{
+        stage("build docker image"){
+            steps{
+                sh "docker image build -t thirupathi444/game:0.1 . "
+            }
+        stage("Docker image push"){
+            withCredentials([string(credentialsId: 'Docker_Hub', variable: 'Docker_Hubpwd')]) {
+                sh "docker login -u thirupathi444 -p ${Docker_Hubpwd}"
+                sh "docker push thirupathi444/game:0.1"
+            }
+        }
+        }
+    }
+}
