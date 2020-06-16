@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("build docker image"){
             steps{
-                sh 'docker image build . -t thirupathi555/game:0.1 '
+                sh 'docker image build -t thirupathi555/game:0.1 .'
             }
         }
     }
