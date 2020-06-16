@@ -4,6 +4,7 @@ pipeline{
         stage("build docker image"){
             steps{
                 sh 'docker image build . -t thirupathi444/game:0.1'
+                 }
             }
         stage("Docker image push"){
             steps{
@@ -15,4 +16,3 @@ pipeline{
         }
         }
     }
-}
